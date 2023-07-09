@@ -19,8 +19,11 @@ async function getData() {
 }
 
 export default async function Home() {
-    const { message: all } = await getData();
-    let allnew = all;
+    const data = await getData();
+    if (data == undefined) {
+        return <></>;
+    }
+    const { message: all } = data;
 
     let {
         title,
@@ -29,13 +32,9 @@ export default async function Home() {
         lists,
         positionedObjects,
     } = all;
-
-    const bulletcount: any = {};
-
     content = content.slice(23);
 
-    console.log(all, lists);
-
+    const bulletcount: any = {};
     const NTH: any = {
         UPPER_ALPHA(num: number) {
             let s = '',
@@ -123,7 +122,7 @@ export default async function Home() {
                         journal&apos; over the lifespan of this project.
                     </h3>
                 </header>
-                {content.map(
+                {content?.map(
                     ({ paragraph }: any, index: Key | null | undefined) => {
                         if (!paragraph) {
                             return;
