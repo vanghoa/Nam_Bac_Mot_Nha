@@ -1,6 +1,6 @@
 'use client';
-import _ from 'lodash';
-import rangeSlider from 'range-slider-input';
+//import _ from 'lodash';
+//import rangeSlider from 'range-slider-input';
 import { useEffect } from 'react';
 
 const MyScripts = () => {
@@ -30,7 +30,7 @@ const MyScripts = () => {
                 value: [0, 0],
                 thumbsDisabled: [true, false],
                 rangeSlideDisabled: true,
-                onInput: function (value, userInteraction) {
+                onInput: function (value: any, userInteraction: any) {
                     if (userInteraction) {
                         ThumbDragEnd('1', value);
                     }
@@ -43,7 +43,7 @@ const MyScripts = () => {
                 value: [0, 0],
                 thumbsDisabled: [true, false],
                 rangeSlideDisabled: true,
-                onInput: function (value, userInteraction) {
+                onInput: function (value: any, userInteraction: any) {
                     if (userInteraction) {
                         ThumbDragEnd('0', value);
                     }

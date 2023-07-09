@@ -1,6 +1,4 @@
-//'use client';
 import Image from 'next/image';
-import Script from 'next/script';
 import fs from 'fs';
 import path from 'path';
 

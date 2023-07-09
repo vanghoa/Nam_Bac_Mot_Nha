@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import Script from 'next/script';
 import Myscripts from '@/components/script';
 import { Key } from 'react';
 
@@ -8,7 +7,7 @@ const loaderProp = ({ src }: { src: string }) => {
 };
 
 async function getData() {
-    const res = await fetch('http://localhost:3000/api/doc', {
+    const res = await fetch('http://127.0.0.1:3000/api/doc', {
         //cache: 'no-store',
     });
 
