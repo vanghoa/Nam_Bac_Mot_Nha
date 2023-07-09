@@ -7,7 +7,7 @@ const loaderProp = ({ src }: { src: string }) => {
 };
 
 async function getData() {
-    const res = await fetch('http://127.0.0.1:3000/api/doc', {
+    const res = await fetch(`https://${process.env.VERCEL_URL}/api/doc`, {
         //cache: 'no-store',
     });
 
