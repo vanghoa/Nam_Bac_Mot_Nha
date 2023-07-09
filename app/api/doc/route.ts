@@ -22,7 +22,7 @@ export async function GET(request: Request) {
         });
     } catch (e) {
         return NextResponse.json(
-            { message: JSON.stringify({ error: true, message: e.message }) },
+            { message: JSON.stringify({ error: true, message: 'bip' }) },
             { status: 400 }
         );
     }
