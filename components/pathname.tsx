@@ -15,6 +15,7 @@ const PathnameScript = () => {
             }
         }
     }, [pathname, searchParams]);
+    return <></>;
 };
 
 export default PathnameScript;

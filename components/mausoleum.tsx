@@ -10,6 +10,7 @@ const MausoleumScripts = () => {
             main.classList.remove('mausoleum');
         };
     }, []);
+    return <></>;
 };
 
 export default MausoleumScripts;

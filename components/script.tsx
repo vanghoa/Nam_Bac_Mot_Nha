@@ -216,6 +216,7 @@ const MyScripts = () => {
             main.removeEventListener('transitionend', maxsoremedit, false);
         };
     }, []);
+    return <></>;
 };
 
 export default MyScripts;

@@ -40,6 +40,7 @@ const ArchiveScripts = () => {
             viewfinder.onclick = null;
         };
     }, []);
+    return <></>;
 };
 
 export default ArchiveScripts;
