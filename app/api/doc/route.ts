@@ -5,8 +5,8 @@ export async function GET(request: Request) {
     try {
         const client = new google.auth.JWT(
             process.env.GOOGLE_CLIENT_EMAIL,
-            undefined,
-            process.env.GOOGLE_PRIVATE_KEY,
+            undefined, // @ts-ignore
+            process.env.GOOGLE_PRIVATE_KEY.split(String.raw`\n`).join('\n'),
             ['https://www.googleapis.com/auth/documents.readonly']
         );
 
