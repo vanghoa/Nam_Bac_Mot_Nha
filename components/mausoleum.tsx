@@ -5,9 +5,9 @@ const MausoleumScripts = () => {
     useEffect(() => {
         const $ = document.querySelector.bind(document);
         const main = $('main');
-        main.classList.add('mausoleum');
+        main?.classList.add('mausoleum');
         return () => {
-            main.classList.remove('mausoleum');
+            main?.classList.remove('mausoleum');
         };
     }, []);
     return <></>;

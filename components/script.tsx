@@ -1,4 +1,6 @@
 'use client';
+import _ from 'lodash';
+import rangeSlider from 'range-slider-input';
 import { useEffect } from 'react';
 
 const MyScripts = () => {
@@ -7,19 +9,19 @@ const MyScripts = () => {
         const $$ = document.querySelectorAll.bind(document);
         const $create = document.createElement.bind(document);
         const $createcomment = document.createComment.bind(document);
-        const root = document.querySelector(':root');
-        const setprop = root.style.setProperty.bind(root.style);
+        const root: any = document.querySelector(':root');
+        const setprop = root?.style.setProperty.bind(root.style);
         const proproot = getComputedStyle(root);
         const getprop = proproot.getPropertyValue.bind(proproot);
 
         const rem = parseFloat(
             getComputedStyle(document.documentElement).fontSize
         );
-        const wrapper = $('#wrapper');
-        const scroller = $('#scroller');
-        const main = $('main');
-        const slider1 = $('#range-slider1');
-        const slider2 = $('#range-slider2');
+        const wrapper: any = $('#wrapper');
+        const scroller: any = $('#scroller');
+        const main: any = $('main');
+        const slider1: any = $('#range-slider1');
+        const slider2: any = $('#range-slider2');
         let rangeSliderElement = [
             rangeSlider(slider1, {
                 min: 0,
@@ -49,8 +51,8 @@ const MyScripts = () => {
             }),
         ];
         let max_sorem = wrapper.getBoundingClientRect().height / rem;
-        let elem_arr = $$('main > #wrapper > *:not(.excld)');
-        let text_arr = [];
+        let elem_arr: any = $$('main > #wrapper > *:not(.excld)');
+        let text_arr: (string | any[])[] = [];
         for (let i = 0; i < elem_arr.length; i++) {
             text_arr.push(elem_arr[i].innerHTML);
         }
@@ -58,7 +60,7 @@ const MyScripts = () => {
         let count_single = 0;
         let offset = 200;
         let offsetrem = 0;
-        let textNode = $('#maximum_char').firstChild;
+        let textNode: any = $('#maximum_char')?.firstChild;
         textNode.textContent = textNode.textContent.trim().replace(/\s+/g, ' ');
         calc_maximum();
 
@@ -96,19 +98,19 @@ const MyScripts = () => {
             wheelset();
         }, 500);
 
-        function ThumbDragEnd(n, vl) {
+        function ThumbDragEnd(n: any, vl: number[]) {
             offsetrem = -(vl[1] * max_sorem) / 100;
             scroller.scrollTo(0, -offsetrem * rem);
             setprop('--offset', `${offsetrem}rem`);
             rangeSliderElement[n].value([0, vl[1]]);
         }
 
-        function wheel3(e) {
+        function wheel3() {
             offsetrem = -scroller.scrollTop / rem;
             wheelset();
         }
 
-        function wheel2(e) {
+        function wheel2(e: any) {
             if (e.deltaY < 0) {
                 offsetrem += 5;
                 if (offsetrem >= 0) {
@@ -130,7 +132,7 @@ const MyScripts = () => {
             setprop('--offset', `${offsetrem}rem`);
         }
 
-        function wheel1(e) {
+        function wheel1(e: any) {
             if (e.deltaY > 0) {
                 count_single += offset;
                 if (count_single > text_arr[count].length) {
@@ -181,7 +183,7 @@ const MyScripts = () => {
 
         function getScrollbarWidth() {
             // Creating invisible container
-            const outer = document.createElement('div');
+            const outer: any = document.createElement('div');
             outer.style.visibility = 'hidden';
             outer.style.overflow = 'scroll'; // forcing scrollbar to appear
             outer.style.msOverflowStyle = 'scrollbar'; // needed for WinJS apps
@@ -201,7 +203,8 @@ const MyScripts = () => {
         }
 
         function maxsoremedit() {
-            max_sorem = $('#wrapper').offsetHeight / rem;
+            let wrapper: any = $('#wrapper');
+            max_sorem = wrapper?.offsetHeight / rem;
             setprop(
                 '--scroller-h',
                 `${max_sorem + main.offsetHeight / rem}rem`

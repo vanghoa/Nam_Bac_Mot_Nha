@@ -7,8 +7,8 @@ const ArchiveScripts = () => {
         const $$ = document.querySelectorAll.bind(document);
         const $create = document.createElement.bind(document);
         const $createcomment = document.createComment.bind(document);
-        const root = document.querySelector(':root');
-        const setprop = root.style.setProperty.bind(root.style);
+        const root: any = document.querySelector(':root');
+        const setprop = root?.style.setProperty.bind(root.style);
         const proproot = getComputedStyle(root);
         const getprop = proproot.getPropertyValue.bind(proproot);
 
@@ -16,8 +16,8 @@ const ArchiveScripts = () => {
             getComputedStyle(document.documentElement).fontSize
         );
 
-        const img_arr = $$('#archive img');
-        const viewfinder = $('#viewfinder');
+        const img_arr: any = $$('#archive img');
+        const viewfinder: any = $('#viewfinder');
 
         for (let i = 0; i < img_arr.length; i++) {
             img_arr[i].onclick = imgclick;
@@ -25,7 +25,7 @@ const ArchiveScripts = () => {
 
         viewfinder.onclick = viewfinder_close;
 
-        function imgclick() {
+        function imgclick(this: { src: string }) {
             setprop('--bg-url', `url('${this.src}')`);
             viewfinder.classList.add('open');
         }
