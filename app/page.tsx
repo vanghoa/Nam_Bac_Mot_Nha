@@ -10,8 +10,12 @@ async function getData() {
     const res = await fetch(`https://${process.env.VERCEL_URL}/api/doc/`, {
         //cache: 'no-store',
     });
-
-    return await res.json();
+    try {
+        return await res.json();
+    } catch (err) {
+        console.log('err: ', err);
+        return undefined;
+    }
 }
 
 export default async function Home() {
