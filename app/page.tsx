@@ -111,12 +111,12 @@ export default async function Home() {
                         Work documentation, thought processes, random notes &
                         readings by Bao Anh Bui @ LASALLE College of the Arts,
                         Singapore, 2023. The content represents only a portion
-                        of the author's perspective at the time of its writing
-                        and may not encompass the entirety of his current
-                        viewpoint. As you navigate through the document, you
-                        will witness significant shifts in perspective,
-                        showcasing the evolving nature of a 'process journal'
-                        over the lifespan of this project.
+                        of the author&apos;s perspective at the time of its
+                        writing and may not encompass the entirety of his
+                        current viewpoint. As you navigate through the document,
+                        you will witness significant shifts in perspective,
+                        showcasing the evolving nature of a &apos;process
+                        journal&apos; over the lifespan of this project.
                     </h3>
                 </header>
                 {content.map(({ paragraph, endIndex, startIndex }, index) => {
