@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-before-interactive-script-outside-document */
 import './globals.css';
 import Script from 'next/script';
 import localFont from 'next/font/local';
