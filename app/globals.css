@@ -1,0 +1,453 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+:root {
+    --offset: 0rem;
+    --scroller-h: 0px;
+    --scrollbar-w: 0px;
+    --background: url('/static/img/_1.jpg');
+    --green: #c6e0be;
+    --yellow: #fff493;
+    --bg-url: linear-gradient(to right, white, white);
+    --max-sorem: 100;
+}
+
+html,
+body {
+    max-width: 100vw;
+    overflow: hidden;
+    height: 100vh;
+    perspective: 445px;
+}
+
+body {
+    background-image: linear-gradient(
+            to right,
+            rgba(0, 0, 0, 0.6) 0%,
+            rgba(0, 0, 0, 0.15) 10%,
+            rgba(0, 0, 0, 0.15) 90%,
+            rgba(0, 0, 0, 0.6) 100%
+        ),
+        var(--background);
+    background-repeat: no-repeat, repeat;
+    background-size: 100%, 10%;
+    padding: 2vmax 0;
+}
+
+main {
+    padding: 2vmax;
+    position: relative;
+    overflow: hidden;
+    margin: 0 auto;
+    background-color: white;
+    height: 100%;
+    max-height: 2000px;
+    max-width: min(110vmin, 2000px);
+    top: 50%;
+    transform: translateY(-50%);
+    transition: transform 1s steps(6);
+    transform-origin: top;
+}
+
+main.mausoleum {
+    transform: rotateX(27deg) translateY(-70%);
+}
+
+#archive {
+    overflow: scroll;
+}
+
+#archive section {
+    position: relative;
+    height: 300vh;
+    width: 300vw;
+}
+
+#archive div {
+    position: absolute;
+    cursor: pointer;
+    background-color: black;
+}
+
+#archive img {
+    display: block;
+}
+
+#archive img:hover {
+    opacity: 50%;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.img_outer {
+    display: block;
+    height: 30vmin;
+    min-height: 20vh;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+.img_outer > * {
+    object-fit: contain;
+}
+
+.left,
+.right {
+    height: calc(50vmin - 2vmax);
+    width: calc(50vmin - 2vmax);
+    max-width: calc(1000px - 2vmax);
+    max-height: calc(1000px - 2vmax);
+    position: relative;
+    overflow: visible;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+:is(.left, .right) > * {
+    -webkit-appearance: none; /* Override default CSS styles */
+    appearance: none;
+    width: calc(100% + 2vmax);
+    top: calc(50% - 6.5% - 4vmin);
+    height: 13%;
+    background: #f0efef;
+    position: absolute;
+    pointer-events: all;
+}
+
+.left > * {
+    left: -4vmin;
+    transform-origin: 50% 50%;
+    transform: rotate(-45deg);
+}
+
+.right > * {
+    right: -4vmin;
+    transform-origin: 50% 50%;
+    transform: rotate(45deg);
+}
+
+.left {
+    float: left;
+    shape-outside: polygon(0 0, 100% 0, 0 100%);
+}
+
+.right {
+    float: right;
+    shape-outside: polygon(100% 0, 0 0, 100% 100%);
+}
+
+body > .butt {
+    float: none;
+    height: 7em;
+    width: 7em;
+    position: absolute;
+    top: 0;
+    shape-outside: none;
+    font-size: 1.5rem;
+}
+
+.butt a {
+    transition: transform 1s steps(6), background-color 1s steps(6);
+}
+
+.butt.left a.selected {
+    transform: rotate(315deg);
+    background-color: var(--green);
+}
+
+.butt.right a.selected {
+    transform: rotate(405deg);
+    background-color: var(--green);
+}
+
+body > .butt.bot {
+    top: unset;
+    bottom: 0;
+}
+
+body > .left {
+    left: 0;
+    font-family: var(--45ouest-font);
+}
+
+body > .right {
+    right: 0;
+    font-family: var(--45est-font);
+}
+
+body > .left * {
+    left: 0;
+}
+
+body > .right * {
+    right: 0;
+}
+
+body > :is(.left, .right) * {
+    width: 100%;
+    top: calc(50% - 10%);
+    height: 23%;
+    background: var(--yellow);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.95em;
+}
+
+p,
+h1,
+h2,
+h3 {
+    padding-bottom: 1rem;
+    hyphens: auto;
+    font-family: var(--acuminbip-font);
+    font-size: 1.3rem;
+    font-weight: 100;
+    font-kerning: normal;
+}
+
+a {
+    background-color: var(--yellow);
+    padding: 0 0.3em;
+    pointer-events: all;
+}
+
+h3 {
+    font-weight: 700;
+}
+
+h1 {
+    padding-top: 1rem;
+    font-family: var(--45ouest-font);
+    font-size: 2.5rem;
+    line-height: 1em;
+}
+
+header {
+    padding: 10% 0;
+    text-align: center;
+    width: 100%;
+    position: relative;
+}
+
+header h1 {
+    font-family: var(--45est-font);
+}
+
+header h1::first-line {
+    font-family: var(--45ouest-font);
+}
+
+h2 {
+    font-family: var(--45ouest-font);
+    line-height: 1em;
+    font-size: 1.5rem;
+    font-weight: 100;
+    letter-spacing: 0.02em;
+}
+
+p.indent_0 {
+    margin-left: 2rem;
+}
+
+p.indent_1 {
+    margin-left: 4rem;
+}
+
+p.indent_2 {
+    margin-left: 6rem;
+}
+
+p.indent_3 {
+    margin-left: 8rem;
+}
+
+#wrapper {
+    margin: var(--offset) 0 0;
+    will-change: margin;
+    position: relative;
+}
+
+#scroller {
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: transparent;
+    width: 100%;
+    height: 100%;
+    overflow-x: auto;
+    display: none;
+}
+
+#scroller * {
+    width: 100%;
+    height: var(--scroller-h);
+}
+
+#maximum_char {
+    visibility: hidden;
+    position: absolute;
+    pointer-events: none;
+    word-break: break-all;
+}
+
+.single-thumb.range-slider .range-slider__thumb[data-lower] {
+    width: 0;
+}
+
+.single-thumb.range-slider .range-slider__thumb[data-upper] {
+    visibility: hidden;
+    height: 100%;
+    width: 0px;
+}
+
+.single-thumb.range-slider .range-slider__thumb {
+    background-color: black;
+}
+
+.single-thumb.range-slider .range-slider__range {
+    background-color: var(--green);
+}
+
+body.rmvpadding {
+    padding: 0;
+}
+
+#viewfinder {
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+#viewfinder div {
+    width: 90%;
+    height: 90%;
+    max-width: 1700px;
+    max-height: 1700px;
+    background-image: var(--bg-url);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    pointer-events: none;
+}
+
+#viewfinder.open {
+    display: flex;
+}
+
+#bleednotes {
+    overflow-x: scroll;
+    text-wrap: nowrap;
+    white-space: nowrap;
+    overflow-y: hidden;
+    background-image: linear-gradient(
+        to right,
+        transparent 90%,
+        rgba(0, 0, 0, 0.8)
+    );
+}
+
+#bleednotes img {
+    z-index: -1;
+    display: inline-block;
+    position: relative;
+}
+
+.outerdiv {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+#mausoleum,
+#glass {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+}
+
+#mausoleum * {
+    width: 60%;
+    height: 60%;
+}
+
+#glass {
+    background-color: transparent;
+}
+
+#glass * {
+    background: linear-gradient(
+            45deg,
+            transparent,
+            rgba(255, 255, 255, 0.2) 10%,
+            rgba(255, 255, 255, 0.1) 20%,
+            rgba(255, 255, 255, 0.1) 21%,
+            rgba(255, 255, 255, 0.3) 30%,
+            rgba(255, 255, 255, 0.1) 47%,
+            rgba(255, 255, 255, 0) 60%,
+            rgba(255, 255, 255, 0.3) 80%,
+            rgba(255, 255, 255, 0.12) 90%
+        ),
+        linear-gradient(
+            45deg,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(255, 255, 255, 0) 5%,
+            rgba(255, 255, 255, 0.2) 7%,
+            rgba(255, 255, 255, 0) 9%,
+            rgba(255, 255, 255, 0) 38%,
+            rgba(255, 255, 255, 0.2) 42%,
+            rgba(255, 255, 255, 0) 43%,
+            rgba(255, 255, 255, 0.2) 46%,
+            rgba(255, 255, 255, 0) 52%,
+            rgba(255, 255, 255, 0) 90%,
+            rgba(255, 255, 255, 0.2) 92%,
+            rgba(255, 255, 255, 0) 96%
+        );
+    backdrop-filter: blur(1.8px);
+    -webkit-backdrop-filter: blur(1.8px);
+    z-index: 999;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+@media (pointer: none), (pointer: coarse), (hover: none), (hover: on-demand) {
+    #wrapper {
+        padding-right: var(--scrollbar-w);
+        pointer-events: none;
+        z-index: 3;
+    }
+
+    #scroller {
+        display: block;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    main :is(.left, .right) > * {
+        display: none;
+    }
+}
+
+@media (min-aspect-ratio: 1) {
+    .left,
+    .right {
+        height: calc(40vmin - 2vmax);
+        width: calc(40vmin - 2vmax);
+        max-width: calc(800px - 2vmax);
+        max-height: calc(800px - 2vmax);
+    }
+}
