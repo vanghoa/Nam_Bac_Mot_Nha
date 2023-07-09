@@ -21,8 +21,9 @@ export async function GET(request: Request) {
             message: data.data,
         });
     } catch (e) {
+        console.log('err: ', e);
         return NextResponse.json(
-            { message: JSON.stringify({ error: true, message: 'bip' }) },
+            { message: JSON.stringify({ error: true, message: e }) },
             { status: 400 }
         );
     }
