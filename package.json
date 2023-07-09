@@ -26,5 +26,8 @@
         "react-range-slider-input": "^3.0.7",
         "sanity": "^3.10.0",
         "typescript": "5.0.4"
+    },
+    "devDependencies": {
+        "encoding": "^0.1.13"
     }
 }
