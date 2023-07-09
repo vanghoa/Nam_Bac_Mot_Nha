@@ -110,7 +110,8 @@ a {
     z-index: 9999;
 }
 
-:is(.left, .right) > * {
+:is(.left, .right) > *,
+.single-thumb.range-slider {
     -webkit-appearance: none; /* Override default CSS styles */
     appearance: none;
     width: calc(100% + 2vmax);
@@ -437,7 +438,7 @@ body.rmvpadding {
 }
 
 @media screen and (max-width: 500px) {
-    main :is(.left, .right) > * {
+    main :is(.left, .right) > .single-thumb.range-slider {
         display: none;
     }
 }

@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-before-interactive-script-outside-document */
 import './globals.css';
 import Script from 'next/script';
 import localFont from 'next/font/local';
@@ -50,14 +49,6 @@ export default function RootLayout({
             <body
                 className={`${bourrasque45est.variable} ${bourrasque45ouest.variable} ${acuminBip.variable}`}
             >
-                <Script
-                    src="https://unpkg.com/range-slider-input@2"
-                    strategy="beforeInteractive"
-                />
-                <Script
-                    src="/static/lodash.custom.min.js"
-                    strategy="beforeInteractive"
-                />
                 <Script src="/static/layout.js" strategy="afterInteractive" />
                 <div className="left butt">
                     <Link href="/" prefetch={true}>

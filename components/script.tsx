@@ -1,6 +1,7 @@
 'use client';
-//import _ from 'lodash';
-//import rangeSlider from 'range-slider-input';
+import _ from 'lodash';
+import rangeSlider from 'range-slider-input';
+import 'range-slider-input/dist/style.css';
 import { useEffect } from 'react';
 
 const MyScripts = () => {
@@ -23,7 +24,6 @@ const MyScripts = () => {
         const slider1: any = $('#range-slider1');
         const slider2: any = $('#range-slider2');
         let rangeSliderElement = [
-            // @ts-ignore
             rangeSlider(slider1, {
                 min: 0,
                 max: 100,
@@ -37,7 +37,6 @@ const MyScripts = () => {
                     }
                 },
             }),
-            // @ts-ignore
             rangeSlider(slider2, {
                 min: 0,
                 max: 100,
@@ -86,7 +85,6 @@ const MyScripts = () => {
         }
         mediacheck();
         //
-        // @ts-ignore
         window.onresize = _.debounce(function () {
             //calc_maximum();
             mediacheck();
