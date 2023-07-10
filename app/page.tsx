@@ -5,7 +5,8 @@ import { Key } from 'react';
 async function getData() {
     console.log(`https://${process.env.VERCEL_URL}/api/doc`);
     const res = await fetch(
-        `https://nam-bac-mot-nha-git-main-vanghoa.vercel.app/api/doc`
+        `https://nam-bac-mot-nha-git-main-vanghoa.vercel.app/api/doc`,
+        { next: { revalidate: 60 } }
     );
     try {
         return await res.json();
