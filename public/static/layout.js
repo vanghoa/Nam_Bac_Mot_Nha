@@ -14,7 +14,7 @@ setprop(
     '--background',
     `url("/static/img/_${Math.floor(Math.random() * 117 + 1)}.jpg")`
 );
-
+viewportheight();
 rmvpadding();
 
 function rmvpadding() {
@@ -23,6 +23,11 @@ function rmvpadding() {
     } else {
         document.body.classList.remove('rmvpadding');
     }
+    viewportheight();
+}
+
+function viewportheight() {
+    setprop('--vh', `${innerHeight}px`);
 }
 
 window.addEventListener('resize', rmvpadding);

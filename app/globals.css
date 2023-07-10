@@ -13,6 +13,7 @@
     --yellow: #fff493;
     --bg-url: linear-gradient(to right, white, white);
     --max-sorem: 100;
+    --vh: 100vh;
 }
 
 html,
@@ -170,7 +171,7 @@ body > .butt {
 
 body > .butt.bot {
     top: unset;
-    bottom: 0;
+    bottom: calc(100vh - var(--vh));
 }
 
 body > .left {
@@ -437,9 +438,19 @@ body.rmvpadding {
     }
 }
 
+@media screen and (max-width: 800px) {
+    html {
+        font-size: 13px;
+    }
+}
+
 @media screen and (max-width: 500px) {
     main :is(.left, .right) > .single-thumb.range-slider {
         display: none;
+    }
+
+    html {
+        font-size: 11px;
     }
 }
 
