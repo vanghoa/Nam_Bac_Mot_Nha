@@ -446,12 +446,14 @@ body.rmvpadding {
 }
 
 @media screen and (max-width: 500px) {
-    main :is(.left, .right) > .single-thumb.range-slider {
-        display: none;
-    }
-
     html {
         font-size: 11px;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    main :is(.left, .right) > .single-thumb.range-slider {
+        display: none;
     }
 }
 

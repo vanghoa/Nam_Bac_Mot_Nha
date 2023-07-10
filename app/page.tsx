@@ -3,13 +3,9 @@ import Myscripts from '@/components/script';
 import { Key } from 'react';
 
 async function getData() {
-    console.log(`https://${process.env.VERCEL_URL}/api/doc`);
-    const res = await fetch(
-        `https://nam-bac-mot-nha-git-main-vanghoa.vercel.app/api/doc`,
-        {
-            cache: 'no-store',
-        }
-    );
+    const res = await fetch(`${process.env.FETCH_URL}/api/doc`, {
+        cache: 'no-store',
+    });
     try {
         return await res.json();
     } catch (err) {
