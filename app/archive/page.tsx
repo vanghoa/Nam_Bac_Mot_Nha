@@ -25,7 +25,7 @@ export default async function Home() {
                         >
                             <Image
                                 src={`/static/img/${v}`}
-                                alt="hinh sech"
+                                alt="hinh archive"
                                 key={i + '_pic'}
                                 width={0}
                                 height={0}

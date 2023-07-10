@@ -10,11 +10,12 @@ export default async function Home() {
                 {Array.from({ length: files.length }, (v, i) => (
                     <Image
                         src={`/static/img_bleed/_${i + 1}.jpg`}
-                        alt="hinh sech"
+                        alt="hinh bleednotes"
                         key={i + '_pic'}
                         width={0}
                         height={0}
                         sizes="100vw"
+                        quality={100}
                         style={{
                             width: 'auto',
                             height: '100%',

@@ -27,7 +27,7 @@ function rmvpadding() {
 }
 
 function viewportheight() {
-    setprop('--vh', `${innerHeight}px`);
+    setprop('--vh', `${innerHeight * 0.01}px`);
 }
 
 window.addEventListener('resize', rmvpadding);

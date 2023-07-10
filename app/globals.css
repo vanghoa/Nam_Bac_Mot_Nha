@@ -13,14 +13,14 @@
     --yellow: #fff493;
     --bg-url: linear-gradient(to right, white, white);
     --max-sorem: 100;
-    --vh: 100vh;
+    --vh: 1vh;
 }
 
 html,
 body {
     max-width: 100vw;
     overflow: hidden;
-    height: 100vh;
+    height: calc(100 * var(--vh));
     perspective: 445px;
 }
 
@@ -51,6 +51,8 @@ main {
     transform: translateY(-50%);
     transition: transform 1s steps(6);
     transform-origin: top;
+    transform-style: flat;
+    z-index: 0;
 }
 
 main.mausoleum {
@@ -63,7 +65,7 @@ main.mausoleum {
 
 #archive section {
     position: relative;
-    height: 300vh;
+    height: calc(300 * var(--vh));
     width: 300vw;
 }
 
@@ -89,7 +91,7 @@ a {
 .img_outer {
     display: block;
     height: 30vmin;
-    min-height: 20vh;
+    min-height: calc(20 * var(--vh));
     position: relative;
     overflow: hidden;
     margin-bottom: 1rem;
@@ -171,7 +173,7 @@ body > .butt {
 
 body > .butt.bot {
     top: unset;
-    bottom: calc(100vh - var(--vh));
+    bottom: 0px;
 }
 
 body > .left {
