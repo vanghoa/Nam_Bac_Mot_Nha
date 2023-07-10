@@ -1,10 +1,9 @@
 'use client';
 import { useEffect } from 'react';
-import { usePathname, useSearchParams } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 
 const PathnameScript = () => {
     const pathname = usePathname();
-    const searchParams = useSearchParams();
     useEffect(() => {
         const range: any = document.querySelectorAll(`.butt a`);
         for (let i = 0; i < range.length; i++) {
@@ -14,7 +13,7 @@ const PathnameScript = () => {
                 range[i].classList.remove('selected');
             }
         }
-    }, [pathname, searchParams]);
+    }, [pathname]);
     return <></>;
 };
 

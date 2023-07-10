@@ -351,7 +351,6 @@ body.rmvpadding {
 
 #bleednotes {
     overflow-x: scroll;
-    text-wrap: nowrap;
     white-space: nowrap;
     overflow-y: hidden;
     background-image: linear-gradient(
