@@ -6,7 +6,9 @@ async function getData() {
     console.log(`https://${process.env.VERCEL_URL}/api/doc`);
     const res = await fetch(
         `https://nam-bac-mot-nha-git-main-vanghoa.vercel.app/api/doc`,
-        { cache: 'no-store' }
+        {
+            cache: 'no-store',
+        }
     );
     try {
         return await res.json();

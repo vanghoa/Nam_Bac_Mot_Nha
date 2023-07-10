@@ -2,7 +2,6 @@
 const nextConfig = {
     images: {
         //unoptimized: true,
-        minimumCacheTTL: 10,
         deviceSizes: [320, 640, 1024, 1280, 1920],
         domains: [
             'lh1.googleusercontent.com',
