@@ -226,6 +226,7 @@ export default async function Home() {
                                                 key={img.inlineObjectId}
                                                 sizes="30vw"
                                                 fill={true}
+                                                unoptimized={true}
                                             />
                                         </div>
                                     );
@@ -249,6 +250,7 @@ export default async function Home() {
                                         key={paragraph.positionedObjectIds}
                                         sizes="30vw"
                                         fill={true}
+                                        unoptimized={true}
                                     />
                                 </div>
                             );
