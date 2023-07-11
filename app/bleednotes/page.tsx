@@ -2,6 +2,9 @@ import Image from 'next/image';
 import fs from 'fs';
 import path from 'path';
 
+export const dynamic = 'force-static';
+export const fetchCache = 'force-cache';
+
 export default async function Home() {
     const files = fs.readdirSync(path.join('public/static/img_bleed'));
     return (

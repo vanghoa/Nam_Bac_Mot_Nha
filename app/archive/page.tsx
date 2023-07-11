@@ -3,6 +3,9 @@ import fs from 'fs';
 import path from 'path';
 import ArchiveScripts from '@/components/archive';
 
+export const dynamic = 'force-static';
+export const fetchCache = 'force-cache';
+
 export default async function Home() {
     const files = fs.readdirSync(path.join('public/static/img'));
     return (
