@@ -1,7 +1,12 @@
 import { google } from 'googleapis';
 import { NextResponse } from 'next/server';
 
+export const revalidate = 0;
+export const dynamic = 'force-dynamic';
+export const fetchCache = 'only-no-store';
+
 export async function GET(request: Request) {
+    console.log(request.url);
     try {
         const client = new google.auth.JWT(
             process.env.GOOGLE_CLIENT_EMAIL,
@@ -16,7 +21,6 @@ export async function GET(request: Request) {
         };
 
         let data = await gdapi.documents.get(opt);
-
         return NextResponse.json({
             message: data.data,
         });
