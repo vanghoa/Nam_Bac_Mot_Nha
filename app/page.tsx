@@ -293,7 +293,7 @@ export default async function Home() {
                                       })()
                                     : ''}
 
-                                {img_arr.length < 0 ? ( //
+                                {img_arr.length > 0 ? ( //
                                     <>{img_arr}</>
                                 ) : (
                                     ''
