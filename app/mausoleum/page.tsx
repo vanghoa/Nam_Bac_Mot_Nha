@@ -8,7 +8,7 @@ export default async function Home() {
                 <div></div>
             </div>
             <div id="mausoleum" className="outerdiv">
-                <iframe src="https://docs.google.com/document/d/15bTvul1DJaX0WfnKyBR8k0ZDPtWNYjjyzq3PVn5ciSY/"></iframe>
+                <iframe src="https://docs.google.com/document/d/1sIAI_vdg6FLcGxDJfGyFfj3Ng9oF-89YiG8djs3k4ls/"></iframe>
             </div>
         </>
     );

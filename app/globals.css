@@ -210,7 +210,7 @@ h1,
 h2,
 h3 {
     padding-bottom: 1rem;
-    hyphens: auto;
+    white-space: pre-wrap;
     font-family: var(--acuminbip-font);
     font-size: 1.3rem;
     font-weight: 100;
@@ -221,6 +221,7 @@ a {
     background-color: var(--yellow);
     padding: 0 0.3em;
     pointer-events: all;
+    hyphens: auto;
 }
 
 h3 {
@@ -451,9 +452,13 @@ body.rmvpadding {
     }
 }
 
-@media screen and (max-width: 380px) {
+@media screen and (max-width: 325px) {
     main :is(.left, .right) > .single-thumb.range-slider {
         display: none;
+    }
+
+    .butt:not(.bot) * {
+        top: 50%;
     }
 }
 

@@ -113,12 +113,12 @@ const MyScripts = () => {
 
         function wheel2(e: any) {
             if (e.deltaY < 0) {
-                offsetrem += 5;
+                offsetrem += 1.5;
                 if (offsetrem >= 0) {
                     offsetrem = 0;
                 }
             } else if (e.deltaY > 0) {
-                offsetrem -= 5;
+                offsetrem -= 1.5;
                 if (offsetrem <= -max_sorem) {
                     offsetrem = -max_sorem;
                 }

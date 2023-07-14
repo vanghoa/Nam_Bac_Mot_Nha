@@ -12,7 +12,7 @@ const main = $('main');
 
 setprop(
     '--background',
-    `url("/static/img/_${Math.floor(Math.random() * 117 + 1)}.jpg")`
+    `url("/static/img/_${Math.floor(Math.random() * 116 + 1)}.jpg")`
 );
 viewportheight();
 rmvpadding();
