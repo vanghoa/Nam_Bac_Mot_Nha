@@ -65,7 +65,7 @@ const MyScripts = () => {
         textNode.textContent = textNode.textContent.trim().replace(/\s+/g, ' ');
         calc_maximum();
 
-        main.addEventListener('transitionend', maxsoremedit, false);
+        //main.addEventListener('transitionend', maxsoremedit, false);
         setprop('--scroller-h', `${max_sorem + main.offsetHeight / rem}rem`);
         setprop('--scrollbar-w', `${getScrollbarWidth()}px`);
         setprop('--offset', `${0}rem`);
@@ -217,7 +217,7 @@ const MyScripts = () => {
             window.onresize = null;
             document.removeEventListener('wheel', wheel2, true);
             scroller.removeEventListener('scroll', wheel3, false);
-            main.removeEventListener('transitionend', maxsoremedit, false);
+            //main.removeEventListener('transitionend', maxsoremedit, false);
         };
     }, []);
     return <></>;
