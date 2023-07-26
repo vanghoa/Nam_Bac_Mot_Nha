@@ -105,18 +105,43 @@ export default async function Home() {
             </div>
             <div id="wrapper">
                 <header>
-                    <h1>{title}</h1>
+                    <h1>Creative Process Journal - Nam Bắc Một Nhà</h1>
                     <h3>
+                        <br></br>
                         Work documentation, thought processes, random notes &
-                        readings by Bao Anh @ LASALLE College of the Arts,
-                        Singapore, 2023. The content represents only a portion
-                        of the author&apos;s perspective at the time of its
-                        writing and may not encompass the entirety of his
-                        viewpoint at the moment. As you navigate through the
-                        document, you will witness significant shifts in
-                        perspective, showcasing the evolving nature of a
-                        &apos;process journal&apos; over the lifespan of this
-                        project &#40;and even after&#41;.
+                        readings by Bảo Anh for his final year project @ LASALLE
+                        College of the Arts, Singapore, 2023 - Nam Bắc Một Nhà.
+                        The content represents only a portion of the
+                        author&apos;s perspective at the time of its writing and
+                        may not encompass the entirety of his viewpoint at the
+                        moment. As you navigate through the document, you will
+                        witness significant shifts in perspective, showcasing
+                        the evolving nature of a process journal over the
+                        lifespan of this project &#40;and even beyond&#41;. As
+                        the project is a culmination of diverse resources
+                        ranging from the Internet to people IRL, done for a
+                        speculative purpose &#40;for fun&#41;, its intention is
+                        not to draw definitive conclusions or dismiss any
+                        statement. Rather, it aims to provide a middleman&apos;s
+                        spot, a 2.5th perspective to observe this whole
+                        obscurity and complexity of the issue.
+                        <br></br>
+                        <br></br>
+                        Typefaces used are Bourrasque by Bureau Brut & Acumin
+                        Pro Condensed by Robert Slimbach, Adobe Fonts. Other
+                        external material citations can be found throughout this
+                        document. If you find it hard to read, I recommend
+                        turning to the page &lsquo;MAUSOLEUM&apos; for a more
+                        comfortable experience. If you want to have a chat or
+                        simply just tell me how you feel about anything
+                        regarding my project, feel free to reach me at{' '}
+                        <a
+                            href="https://www.instagram.com/bao.anh.bui/"
+                            target="_blank"
+                        >
+                            @bao.anh.bui
+                        </a>{' '}
+                        on Instagram.
                     </h3>
                 </header>
                 {content?.map(
