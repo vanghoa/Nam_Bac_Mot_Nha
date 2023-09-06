@@ -37,3 +37,4 @@ next-env.d.ts
 .DS_Store
 nambacmotnha-f6c42ebe4eb8.json
 node_modules
+.vscode
