@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Myscripts from '@/components/script';
 import { Key } from 'react';
+import Link from 'next/link';
 
 async function getData() {
     const res = await fetch(`${process.env.FETCH_URL}/api/doc`, {
@@ -131,9 +132,12 @@ export default async function Home() {
                         Pro Condensed by Robert Slimbach, Adobe Fonts. Other
                         external material citations can be found throughout this
                         document. If you find it hard to read, I recommend
-                        turning to the page &lsquo;MAUSOLEUM&apos; for a more
-                        comfortable experience. If you want to have a chat or
-                        simply just tell me how you feel about anything
+                        turning to the page{' '}
+                        <Link href="/mausoleum" prefetch={true}>
+                            MAUSOLEUM
+                        </Link>{' '}
+                        for a more comfortable experience. If you want to have a
+                        chat or simply just tell me how you feel about anything
                         regarding my project, feel free to reach me at{' '}
                         <a
                             href="https://www.instagram.com/bao.anh.bui/"
