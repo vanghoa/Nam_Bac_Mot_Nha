@@ -244,12 +244,63 @@ header h1::first-line {
     font-family: var(--45ouest-font);
 }
 
-h2 {
+h2,
+p.loadingstate,
+p.loadfail {
     font-family: var(--45ouest-font);
     line-height: 1em;
     font-size: 1.5rem;
     font-weight: 100;
     letter-spacing: 0.02em;
+}
+
+p.loadingstate,
+p.loadfail {
+    line-height: 1.3em;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    transform: rotate(-45deg);
+    text-align: center;
+}
+
+p.loadingstate::before {
+    content: "I'm";
+    animation: loading 1s infinite alternate;
+    max-width: 80%;
+}
+
+@keyframes loading {
+    0% {
+        content: "I'm";
+    }
+    20% {
+        content: "I'm";
+    }
+    30% {
+        content: "I'm fetching";
+    }
+    40% {
+        content: "I'm fetching from";
+    }
+    50% {
+        content: "I'm fetching from Google";
+    }
+    60% {
+        content: "I'm fetching from Google Doc";
+    }
+    70% {
+        content: "I'm fetching from Google Doc right";
+    }
+    80% {
+        content: "I'm fetching from Google Doc right now...";
+    }
+    100% {
+        content: "I'm fetching from Google Doc right now...";
+    }
 }
 
 p.indent_0 {
@@ -272,6 +323,7 @@ p.indent_3 {
     margin: var(--offset) 0 0;
     will-change: margin;
     position: relative;
+    min-height: 100%;
 }
 
 #scroller {
