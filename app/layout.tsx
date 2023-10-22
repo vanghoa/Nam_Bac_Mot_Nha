@@ -1,8 +1,8 @@
+/* eslint-disable @next/next/no-before-interactive-script-outside-document */
 import './globals.css';
 import Script from 'next/script';
 import localFont from 'next/font/local';
 import Link from 'next/link';
-import PathnameScript from '@/components/pathname';
 import { Metadata } from 'next';
 
 const bourrasque45est = localFont({
@@ -46,11 +46,11 @@ export default function RootLayout({
     children: React.ReactNode;
 }) {
     return (
-        <html lang="en">
+        <html lang="en" suppressHydrationWarning>
             <body
                 className={`${bourrasque45est.variable} ${bourrasque45ouest.variable} ${acuminBip.variable}`}
             >
-                <Script src="/static/layout.js" strategy="afterInteractive" />
+                <Script src="/static/layout.js" strategy="beforeInteractive" />
                 <div className="left butt">
                     <Link href="/" prefetch={true}>
                         HOME
@@ -71,8 +71,7 @@ export default function RootLayout({
                         MAUSOLEUM
                     </Link>
                 </div>
-                <PathnameScript></PathnameScript>
-                <main>{children}</main>
+                {children}
             </body>
         </html>
     );

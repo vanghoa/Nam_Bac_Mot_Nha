@@ -3,6 +3,19 @@ import Myscripts from '@/components/script';
 import { Key, Suspense } from 'react';
 import Link from 'next/link';
 
+type bulletcountnth = {
+    [`nth0`]: number;
+    [`nth1`]: number;
+    [`nth2`]: number;
+    [`nth3`]: number;
+    [`nth4`]: number;
+    [`nth5`]: number;
+    [`nth6`]: number;
+    [`nth7`]: number;
+    [`nth8`]: number;
+    [`nth9`]: number;
+};
+
 async function getData() {
     const res = await fetch(`${process.env.FETCH_URL}/api/doc`, {
         cache: 'no-store',
@@ -35,8 +48,10 @@ async function Wrapper() {
     } = all;
     content = content.slice(23);
 
-    const bulletcount: any = {};
-    const NTH: any = {
+    const bulletcount: {
+        [key: string]: bulletcountnth;
+    } = {};
+    const NTH = {
         UPPER_ALPHA(num: number) {
             let s = '',
                 t;
@@ -51,7 +66,7 @@ async function Wrapper() {
             return this.UPPER_ALPHA(num)?.toLowerCase() || undefined;
         },
         UPPER_ROMAN(num: number) {
-            let lookup: any = {
+            let lookup = {
                     M: 1000,
                     CM: 900,
                     D: 500,
@@ -69,9 +84,9 @@ async function Wrapper() {
                 roman = '',
                 i;
             for (i in lookup) {
-                while (num >= lookup[i]) {
+                while (num >= lookup[i as keyof typeof lookup]) {
                     roman += i;
-                    num -= lookup[i];
+                    num -= lookup[i as keyof typeof lookup];
                 }
             }
             return roman;
@@ -149,7 +164,7 @@ async function Wrapper() {
                     };
                     if (paragraph.bullet) {
                         let id: string = paragraph.bullet.listId;
-                        let outcome = '';
+                        let outcome: string | number = '';
                         let level = (bullet.level = paragraph.bullet
                             .nestingLevel
                             ? paragraph.bullet.nestingLevel
@@ -157,7 +172,9 @@ async function Wrapper() {
                         bullet.is = true;
                         if (bulletcount[id]) {
                             for (let i = 9; i > level; i--) {
-                                bulletcount[id][`nth${i}`] = 0;
+                                bulletcount[id][
+                                    `nth${i}` as keyof bulletcountnth
+                                ] = 0;
                             }
                         } else {
                             bulletcount[id] = {
@@ -173,12 +190,16 @@ async function Wrapper() {
                                 [`nth9`]: 0,
                             };
                         }
-                        let nth = ++bulletcount[id][`nth${level}`];
+                        let nth = ++bulletcount[id][
+                            `nth${level}` as keyof bulletcountnth
+                        ];
                         let data =
                             lists[id].listProperties.nestingLevels[level];
 
                         if (data.glyphType) {
-                            outcome = NTH[data.glyphType](nth);
+                            outcome =
+                                NTH[data.glyphType as keyof typeof NTH](nth) ??
+                                '';
                         } else if (data.glyphSymbol) {
                             outcome = data.glyphSymbol;
                         }

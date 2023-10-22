@@ -1,11 +1,13 @@
 'use client';
-import { useEffect } from 'react';
-import { usePathname } from 'next/navigation';
 
-const PathnameScript = () => {
+import { usePathname } from 'next/navigation';
+import { useEffect } from 'react';
+
+export default function Template({ children }: { children: React.ReactNode }) {
     const pathname = usePathname();
     useEffect(() => {
-        const range: any = document.querySelectorAll(`.butt a`);
+        const range: NodeListOf<HTMLAnchorElement> =
+            document.querySelectorAll(`.butt a`);
         for (let i = 0; i < range.length; i++) {
             if (range[i].pathname == pathname) {
                 range[i].classList.add('selected');
@@ -14,7 +16,5 @@ const PathnameScript = () => {
             }
         }
     }, [pathname]);
-    return <></>;
-};
-
-export default PathnameScript;
+    return <main>{children}</main>;
+}

@@ -6,6 +6,7 @@ export const dynamic = 'force-dynamic';
 export const fetchCache = 'only-no-store';
 
 export async function GET(request: Request) {
+    console.log('bip');
     console.log(request.url);
     try {
         const client = new google.auth.JWT(
