@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Myscripts from '@/components/script';
-import { Key, Suspense } from 'react';
+import { Fragment, Key, Suspense } from 'react';
 import Link from 'next/link';
 
 type bulletcountnth = {
@@ -154,7 +154,7 @@ async function Wrapper() {
             {content?.map(
                 ({ paragraph }: any, index: Key | null | undefined) => {
                     if (!paragraph) {
-                        return;
+                        return <Fragment key={`${index}Frag`}></Fragment>;
                     }
 
                     let bullet = {
@@ -248,7 +248,10 @@ async function Wrapper() {
                                 para_arr.push(tag);
                             } else if (img) {
                                 img_arr.push(
-                                    <div className="img_outer">
+                                    <div
+                                        className="img_outer"
+                                        key={img.inlineObjectId}
+                                    >
                                         <Image
                                             src={
                                                 inlineObjects[
@@ -272,7 +275,10 @@ async function Wrapper() {
 
                     if (Object.hasOwn(paragraph, 'positionedObjectIds')) {
                         img_arr.push(
-                            <div className="img_outer">
+                            <div
+                                className="img_outer"
+                                key={paragraph.positionedObjectIds}
+                            >
                                 <Image
                                     src={
                                         positionedObjects[
@@ -293,7 +299,7 @@ async function Wrapper() {
                     }
 
                     return (
-                        <>
+                        <Fragment key={`${index}Frag`}>
                             {para_arr.length > 0
                                 ? (() => {
                                       let Paratag: any;
@@ -334,7 +340,7 @@ async function Wrapper() {
                             ) : (
                                 ''
                             )}
-                        </>
+                        </Fragment>
                     );
                 }
             )}
@@ -358,7 +364,10 @@ export default function Home() {
                 <div></div>
             </div>
             <div id="wrapper">
-                <Suspense fallback={<p className="loadingstate"></p>}>
+                <Suspense
+                    key={`${Math.random()}suspense`}
+                    fallback={<p className="loadingstate"></p>}
+                >
                     <Wrapper></Wrapper>
                 </Suspense>
             </div>

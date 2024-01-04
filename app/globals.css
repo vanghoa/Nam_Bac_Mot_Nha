@@ -91,8 +91,14 @@ a {
     margin-bottom: 1rem;
 }
 
-.img_outer > * {
+.img_outer:nth-child(odd) > * {
     object-fit: contain;
+    background-color: var(--green);
+}
+
+.img_outer:nth-child(even) > * {
+    object-fit: contain;
+    background-color: var(--yellow);
 }
 
 .left,
@@ -516,9 +522,15 @@ body.rmvpadding {
 @media (min-aspect-ratio: 1) {
     .left,
     .right {
-        height: calc(40vmin - 2vmax);
-        width: calc(40vmin - 2vmax);
+        height: calc(25vmin - 2vmax);
+        width: calc(25vmin - 2vmax);
         max-width: calc(800px - 2vmax);
         max-height: calc(800px - 2vmax);
+    }
+
+    :is(.left, .right) > *,
+    .single-thumb.range-slider {
+        top: calc(50% - 6.5% - 3.5vmin);
+        height: 20%;
     }
 }
